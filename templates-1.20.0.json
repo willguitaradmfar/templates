@@ -9,7 +9,7 @@
     "logo": "http://learntofly.global/img/logo.png",
     "repository": {
       "url": "https://github.com/willguitaradmfar/templates",
-      "stackfile": "stacks/ltf/docker-stack.yml"
+      "stackfile": "stacks/ltf/docker-compose.yml"
     }
   },
   {

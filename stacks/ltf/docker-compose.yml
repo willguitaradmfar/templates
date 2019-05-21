@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 services:
   ha-proxy:
     image: haproxy:1.8.14-alpine
