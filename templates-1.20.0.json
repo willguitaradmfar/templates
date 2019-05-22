@@ -10,7 +10,12 @@
     "repository": {
       "url": "https://github.com/willguitaradmfar/templates",
       "stackfile": "stacks/ltf/docker-compose.yml"
-    }
+    },
+    "env": [{
+      "name": "DB_IP",
+      "label": "Database IP EC2",
+      "description": "Database IP EC2"
+    }]
   },
   {
     "type": 3,
