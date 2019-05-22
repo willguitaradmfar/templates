@@ -1,4 +1,4 @@
-version: '2'
+version: '2.1'
 services:
   reverse-proxy:
     image: traefik # The official Traefik docker image
@@ -15,11 +15,13 @@ services:
     restart: always
 
   ltf-admin-web:
-    container_name: adm
+    container_name: ltf-admin-web
     image: willguitaradmfar/ltf-admin-web:latest
     restart: always
     environment:
       SED_ORKI_SERVER_ENDPOINT: "https:\\/\\/ltf-admin-api.devmania.com.br"
+    labels:
+      - traefik.frontend.rule: Host:adm.learntofly.global
 
   ltf-admin-api:
     container_name: adm-api
