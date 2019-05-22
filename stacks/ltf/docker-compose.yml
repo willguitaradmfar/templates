@@ -1,4 +1,4 @@
-version: '3'
+version: '2'
 services:
   reverse-proxy:
     image: traefik # The official Traefik docker image
@@ -13,6 +13,8 @@ services:
     container_name: ltf-pages
     image: seals.azurecr.io/ltf-pages:latest
     restart: always
+    labels:
+      - "traefik.frontend.rule=Host:pages.learntofly.global"
 
   ltf-admin-web:
     container_name: ltf-admin-web
@@ -21,7 +23,7 @@ services:
     environment:
       SED_ORKI_SERVER_ENDPOINT: "https:\\/\\/ltf-admin-api.devmania.com.br"
     labels:
-      - traefik.frontend.rule: Host:adm.learntofly.global
+      - "traefik.frontend.rule=Host:adm.learntofly.global"
 
   ltf-admin-api:
     container_name: adm-api
@@ -40,11 +42,15 @@ services:
       AMQP_HOST: "rabbitmq"
       WAIT_FOR_HOSTS: "rabbitmq:5672"
       P19_HOST: "https://ltf-api.devmania.com.br"
+    labels:
+      - "traefik.frontend.rule=Host:adm-api.learntofly.global"
 
   ltf-client-web:
     container_name: calendar
     image: seals.azurecr.io/ltf-client-web:latest
     restart: always
+    labels:
+      - "traefik.frontend.rule=Host:calendar.learntofly.global"
 
   ltf-server:
     container_name: calendar-api
@@ -65,6 +71,8 @@ services:
       LTF_BACK_HOST: "https://ltf-api.devmania.com.br"
       LTF_FRONT_HOST: "https://ltf.devmania.com.br"
       WAIT_FOR_HOSTS: "redis:6379;mongo:27017"
+    labels:
+      - "traefik.frontend.rule=Host:calendar-api.learntofly.global"
 
   redis:
     image: redis
