@@ -2,10 +2,12 @@ version: '2'
 services:  
   redis:
     image: redis
+    network_mode: host
     restart: always
 
   mongo:
     image: aashreys/mongo-auth:latest
+    network_mode: host
     environment:
       - AUTH=yes
       - MONGODB_ADMIN_USER=admin
@@ -19,10 +21,12 @@ services:
 
   mqtt:
     image: eclipse-mosquitto
+    network_mode: host
     restart: always
 
   rabbitmq:
     image: rabbitmq:3-management
+    network_mode: host
     restart: always
     environment:
       RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
