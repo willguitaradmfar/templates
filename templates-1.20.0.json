@@ -13,6 +13,19 @@
     }
   },
   {
+    "type": 3,
+    "title": "LearnToFly - DB",
+    "description": "Serviços DB Learntofly production",
+    "note": "Serviços DB Learntofly production",
+    "categories": ["LTF"],
+    "platform": "linux",
+    "logo": "http://learntofly.global/img/logo.png",
+    "repository": {
+      "url": "https://github.com/willguitaradmfar/templates",
+      "stackfile": "stacks/ltf-db/docker-compose.yml"
+    }
+  },
+  {
     "type": 1,
     "title": "Registry",
     "description": "Docker image registry",

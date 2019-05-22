@@ -1,0 +1,32 @@
+version: '2'
+services:  
+  redis:
+    image: redis
+    restart: always
+
+  mongo:
+    image: aashreys/mongo-auth:latest
+    environment:
+      - AUTH=yes
+      - MONGODB_ADMIN_USER=admin
+      - MONGODB_ADMIN_PASS=admin123
+      - MONGODB_APPLICATION_DATABASE=myapp
+      - MONGODB_APPLICATION_USER=mongo_user
+      - MONGODB_APPLICATION_PASS=admin123
+    restart: always
+    volumes:
+      - /var/lib/mongodb:/data/db
+
+  mqtt:
+    image: eclipse-mosquitto
+    restart: always
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    restart: always
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+      RABBITMQ_DEFAULT_USER: "rabbitmq"
+      RABBITMQ_DEFAULT_PASS: "rabbitmq"
+      RABBITMQ_DEFAULT_VHOST: "/"
+  
