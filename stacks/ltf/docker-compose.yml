@@ -21,7 +21,7 @@ services:
     image: willguitaradmfar/ltf-admin-web:latest
     restart: always
     environment:
-      SED_ORKI_SERVER_ENDPOINT: "https:\\/\\/ltf-admin-api.devmania.com.br"
+      SED_ORKI_SERVER_ENDPOINT: "http:\\/\\/adm-api.learntofly.global"
     labels:
       - "traefik.frontend.rule=Host:adm.learntofly.global"
 
