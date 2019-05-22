@@ -1,12 +1,13 @@
 version: '2'
 services:
-  ha-proxy:
-    image: haproxy:1.8.14-alpine
-    container_name: ha-proxy-dev
+  reverse-proxy:
+    image: traefik # The official Traefik docker image
+    command: --api --docker # Enables the web UI and tells Traefik to listen to docker
     ports:
-      - '80:80'
+      - "80:80"     # The HTTP port
+      - "8080:8080" # The Web UI (enabled by --api)
     volumes:
-      - /opt/haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+      - /var/run/docker.sock:/var/run/docker.sock
 
   ltf-pages:
     container_name: ltf-pages
@@ -14,14 +15,14 @@ services:
     restart: always
 
   ltf-admin-web:
-    container_name: ltf-admin-web
+    container_name: adm
     image: willguitaradmfar/ltf-admin-web:latest
     restart: always
     environment:
       SED_ORKI_SERVER_ENDPOINT: "https:\\/\\/ltf-admin-api.devmania.com.br"
 
   ltf-admin-api:
-    container_name: ltf-admin-api
+    container_name: adm-api
     image: willguitaradmfar/ltf-admin-api:latest
     restart: always
     environment:
@@ -39,12 +40,12 @@ services:
       P19_HOST: "https://ltf-api.devmania.com.br"
 
   ltf-client-web:
-    container_name: ltf-client-web
+    container_name: calendar
     image: seals.azurecr.io/ltf-client-web:latest
     restart: always
 
   ltf-server:
-    container_name: ltf-server
+    container_name: calendar-api
     image: seals.azurecr.io/ltf-server:latest
     restart: always
     environment:
