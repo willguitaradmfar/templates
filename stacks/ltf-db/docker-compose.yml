@@ -18,6 +18,7 @@ services:
     restart: always
     volumes:
       - /var/lib/mongodb:/data/db
+      - /tmp/backup:/backup
 
   mqtt:
     image: eclipse-mosquitto
@@ -33,4 +34,5 @@ services:
       RABBITMQ_DEFAULT_USER: "rabbitmq"
       RABBITMQ_DEFAULT_PASS: "rabbitmq"
       RABBITMQ_DEFAULT_VHOST: "/"
+  
   
