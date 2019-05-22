@@ -26,7 +26,7 @@ services:
       - "traefik.frontend.rule=Host:adm.learntofly.global"
 
   ltf-admin-api:
-    container_name: adm-api
+    container_name: ltf-admin-api
     image: willguitaradmfar/ltf-admin-api:latest
     restart: always
     environment:
@@ -46,14 +46,14 @@ services:
       - "traefik.frontend.rule=Host:adm-api.learntofly.global"
 
   ltf-client-web:
-    container_name: calendar
+    container_name: ltf-client-web
     image: seals.azurecr.io/ltf-client-web:latest
     restart: always
     labels:
       - "traefik.frontend.rule=Host:calendar.learntofly.global"
 
   ltf-server:
-    container_name: calendar-api
+    container_name: ltf-server
     image: seals.azurecr.io/ltf-server:latest
     restart: always
     environment:
