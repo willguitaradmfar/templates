@@ -21,7 +21,7 @@ services:
     image: willguitaradmfar/ltf-admin-web:latest
     restart: always
     environment:
-      SED_ORKI_SERVER_ENDPOINT: "http:\\/\\/adm-api.learntofly.global"
+      SED_ORKI_SERVER_ENDPOINT: "https:\\/\\/adm-api.learntofly.global"
     labels:
       - "traefik.frontend.rule=Host:adm.learntofly.global"
 
@@ -41,7 +41,7 @@ services:
       MQTT_HOST: "${DB_IP}"
       AMQP_HOST: "${DB_IP}"
       WAIT_FOR_HOSTS: "${DB_IP}:5672;${DB_IP}:27017;${DB_IP}:6379;${DB_IP}:1883"
-      P19_HOST: "http://calendar-api.learntofly.global"
+      P19_HOST: "https://calendar-api.learntofly.global"
     labels:
       - "traefik.frontend.rule=Host:adm-api.learntofly.global"
 
@@ -50,8 +50,8 @@ services:
     image: seals.azurecr.io/ltf-client-web:latest
     restart: always
     environment:
-      NG_HTTP_SERVER_ENDPOINT: "http:\\/\\/calendar-api.learntofly.global"
-      NG_WS_SERVER_ENDPOINT: "ws:\\/\\/calendar-api.learntofly.global"
+      NG_HTTP_SERVER_ENDPOINT: "https:\\/\\/calendar-api.learntofly.global"
+      NG_WS_SERVER_ENDPOINT: "wss:\\/\\/calendar-api.learntofly.global"
     labels:
       - "traefik.frontend.rule=Host:calendar.learntofly.global"
 
@@ -62,7 +62,7 @@ services:
     environment:
       GOOGLE_CLIENT_ID: "362454021622-jtg3mhn85oqapio7j700scto9328ojun.apps.googleusercontent.com"
       GOOGLE_CLIENT_SECRET: "OBwDW6NbLUqmMcaxCcdc8Ojg"
-      GOOGLE_CALLBACK_REDIRECT: "http://calendar-api.learntofly.global/api/auth/google/callback"
+      GOOGLE_CALLBACK_REDIRECT: "https://calendar-api.learntofly.global/api/auth/google/callback"
       MONGO_URI: ""
       MONGO_USER: "mongo_user"
       MONGO_PASS: "admin123"
@@ -72,8 +72,8 @@ services:
       REDIS_HOST: "${DB_IP}"
       MQTT_HOST: "${DB_IP}"
       AMQP_HOST: "${DB_IP}"
-      LTF_BACK_HOST: "http://calendar-api.learntofly.global"
-      LTF_FRONT_HOST: "http://calendar.learntofly.global"
+      LTF_BACK_HOST: "https://calendar-api.learntofly.global"
+      LTF_FRONT_HOST: "https://calendar.learntofly.global"
       WAIT_FOR_HOSTS: "${DB_IP}:5672;${DB_IP}:27017;${DB_IP}:6379;${DB_IP}:1883"
     labels:
       - "traefik.frontend.rule=Host:calendar-api.learntofly.global"
