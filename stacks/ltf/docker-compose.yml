@@ -50,8 +50,8 @@ services:
     image: seals.azurecr.io/ltf-client-web:latest
     restart: always
     environment:
-      NG_HTTP_SERVER_ENDPOINT: "http:\\/\\/calendar.learntofly.global"
-      NG_WS_SERVER_ENDPOINT: "ws:\\/\\/calendar.learntofly.global"
+      NG_HTTP_SERVER_ENDPOINT: "http:\\/\\/calendar-api.learntofly.global"
+      NG_WS_SERVER_ENDPOINT: "ws:\\/\\/calendar-api.learntofly.global"
     labels:
       - "traefik.frontend.rule=Host:calendar.learntofly.global"
 
