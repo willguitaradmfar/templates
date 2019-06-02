@@ -1,6 +1,19 @@
 [
   {
     "type": 3,
+    "title": "Traefik",
+    "description": "Traefik",
+    "note": "Traefik",
+    "categories": ["Infra"],
+    "platform": "linux",
+    "logo": "http://learntofly.global/img/logo.png",
+    "repository": {
+      "url": "https://github.com/willguitaradmfar/templates",
+      "stackfile": "stacks/traefik/docker-compose.yml"
+    }
+  },
+  {
+    "type": 3,
     "title": "LearnToFly",
     "description": "Serviços Learntofly production",
     "note": "Serviços Learntofly production",
