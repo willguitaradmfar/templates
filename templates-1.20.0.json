@@ -1,16 +1,25 @@
 [
   {
-    "type": 3,
+    "type": 1,
     "title": "Traefik",
     "description": "Traefik",
     "note": "Traefik",
     "categories": ["Infra"],
     "platform": "linux",
     "logo": "https://d33wubrfki0l68.cloudfront.net/1b8ea408142c253bb8e16596218e4e328d019c58/862c3/assets/img/traefik.logo.bright@3x.svg",
-    "repository": {
-      "url": "https://github.com/willguitaradmfar/templates",
-      "stackfile": "stacks/traefik/docker-compose.yml"
-    }
+    "command": "--api --docker", 
+    "image": "traefik",
+    "ports": [
+      "80/tcp",
+      "443/tcp",
+      "8080/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/var/run/docker.sock",
+        "bind": "/var/run/docker.sock"
+      }
+    ]
   },
   {
     "type": 3,
