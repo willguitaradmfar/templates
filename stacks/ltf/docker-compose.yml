@@ -40,6 +40,7 @@ services:
       REDIS_HOST: "${DB_IP}"
       MQTT_HOST: "${DB_IP}"
       AMQP_HOST: "${DB_IP}"
+      MINIO_HOST: "${DB_IP}"
       WAIT_FOR_HOSTS: "${DB_IP}:5672;${DB_IP}:27017;${DB_IP}:6379;${DB_IP}:1883"
       P19_HOST: "https://calendar-api.learntofly.global"
     labels:
