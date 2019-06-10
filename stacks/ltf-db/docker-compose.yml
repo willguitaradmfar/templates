@@ -34,5 +34,15 @@ services:
       RABBITMQ_DEFAULT_USER: "rabbitmq"
       RABBITMQ_DEFAULT_PASS: "rabbitmq"
       RABBITMQ_DEFAULT_VHOST: "/"
+      
+  minio:
+    image: minio/minio 
+    restart: always
+    command: ["server", "/data"]
+    ports:
+      - 9000:9000
+    environment:
+      MINIO_ACCESS_KEY: "admin"
+      MINIO_SECRET_KEY: "admin123"
   
   
