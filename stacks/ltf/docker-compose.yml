@@ -29,6 +29,9 @@ services:
     container_name: ltf-admin-api
     image: willguitaradmfar/ltf-admin-api:latest
     restart: always
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     environment:
       JWT_IAT: "604800"
       PORT: "3000"
@@ -60,6 +63,9 @@ services:
     container_name: ltf-server
     image: seals.azurecr.io/ltf-server:latest
     restart: always
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     environment:
       GOOGLE_CLIENT_ID: "362454021622-jtg3mhn85oqapio7j700scto9328ojun.apps.googleusercontent.com"
       GOOGLE_CLIENT_SECRET: "OBwDW6NbLUqmMcaxCcdc8Ojg"
