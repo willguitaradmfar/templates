@@ -46,6 +46,7 @@ services:
       MINIO_HOST: "${DB_IP}"
       WAIT_FOR_HOSTS: "${DB_IP}:5672;${DB_IP}:27017;${DB_IP}:6379;${DB_IP}:1883;${DB_IP}:9000"
       P19_HOST: "https://calendar-api.learntofly.global"
+      P18_HOST: "${P18_HOST}"
     labels:
       - "traefik.frontend.rule=Host:adm-api.learntofly.global"
 
