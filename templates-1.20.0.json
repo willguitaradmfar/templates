@@ -34,6 +34,10 @@
       "stackfile": "stacks/ltf/docker-compose.yml"
     },
     "env": [{
+      "name": "P18_HOST",
+      "label": "URL P18",
+      "description": "Endereço do serviço p18"
+    }, {
       "name": "DB_IP",
       "label": "Database IP EC2",
       "description": "Database IP EC2"
