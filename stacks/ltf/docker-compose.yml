@@ -16,18 +16,16 @@ services:
     labels:
       - "traefik.frontend.rule=Host:pages.learntofly.global"
 
-  ltf-admin-web:
-    container_name: ltf-admin-web
-    image: willguitaradmfar/ltf-admin-web:latest
+  ltf-web:    
+    image: willguitaradmfar/ltf-web:latest
     restart: always
     environment:
       SED_ORKI_SERVER_ENDPOINT: "https:\\/\\/adm-api.learntofly.global"
     labels:
       - "traefik.frontend.rule=Host:adm.learntofly.global"
 
-  ltf-admin-api:
-    container_name: ltf-admin-api
-    image: willguitaradmfar/ltf-admin-api:latest
+  ltf-api:    
+    image: willguitaradmfar/ltf-api:latest
     restart: always
     volumes:
       - /etc/timezone:/etc/timezone:ro
